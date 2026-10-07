@@ -1,5 +1,6 @@
 import { useState, type FormEvent } from "react";
 import { SiGithub, SiGoogle } from "react-icons/si";
+import { Link } from "react-router-dom";
 
 import Button from "../../../components/ui/Button";
 import type { LoginFormData } from "../types";
@@ -161,12 +162,12 @@ function LoginForm() {
 
       <p className="mt-5 text-center text-sm text-base-content/60">
         Don't have an account?{" "}
-        <a
-          href="/register"
+        <Link
+          to="/register"
           className="font-semibold text-primary transition-colors hover:text-primary/80 hover:underline"
         >
           Create one
-        </a>
+        </Link>
       </p>
     </form>
   );

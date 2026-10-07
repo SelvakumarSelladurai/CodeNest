@@ -3,3 +3,10 @@ export type LoginFormData = {
   password: string;
   rememberMe: boolean;
 };
+
+export type RegisterFormData = {
+  fullName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+};
