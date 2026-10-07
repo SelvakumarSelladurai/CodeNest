@@ -1,12 +1,17 @@
 import { useState, type FormEvent } from "react";
 import { SiGithub, SiGoogle } from "react-icons/si";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import Button from "../../../components/ui/Button";
 import type { LoginFormData } from "../types";
 import PasswordInput from "./PasswordInput";
 
+const DEMO_EMAIL = "selvakumar@gmail.com";
+const DEMO_PASSWORD = "Selva@5973";
+
 function LoginForm() {
+  const navigate = useNavigate();
+
   const [formData, setFormData] = useState<LoginFormData>({
     email: "",
     password: "",
@@ -14,11 +19,19 @@ function LoginForm() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (
     event: FormEvent<HTMLFormElement>,
   ) => {
     event.preventDefault();
+
+    setError("");
+
+    if (!formData.email || !formData.password) {
+      setError("Please enter your email address and password.");
+      return;
+    }
 
     setIsSubmitting(true);
 
@@ -28,7 +41,16 @@ function LoginForm() {
       setTimeout(resolve, 1000),
     );
 
-    console.log(formData);
+    if (
+      formData.email === DEMO_EMAIL &&
+      formData.password === DEMO_PASSWORD
+    ) {
+      console.log("Login successful");
+
+      navigate("/dashboard");
+    } else {
+      setError("Invalid email address or password.");
+    }
 
     setIsSubmitting(false);
   };
@@ -55,6 +77,13 @@ function LoginForm() {
         </p>
       </div>
 
+      {/* Error */}
+      {error && (
+        <div className="mb-5 rounded-lg border border-error/20 bg-error/10 px-4 py-3 text-sm text-error">
+          {error}
+        </div>
+      )}
+
       <div className="space-y-4">
         <fieldset className="fieldset">
           <label
@@ -79,7 +108,8 @@ function LoginForm() {
             placeholder="you@example.com"
             className="input input-bordered h-11 w-full bg-base-100 
               focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/15
-            "/>
+            "
+          />
         </fieldset>
 
         <PasswordInput
@@ -110,12 +140,12 @@ function LoginForm() {
           <span>Remember me</span>
         </label>
 
-        <a
-          href="/forgot-password"
+        <Link
+          to="/forgot-password"
           className="text-sm font-semibold text-primary transition-colors hover:text-primary/80 hover:underline"
         >
           Forgot password?
-        </a>
+        </Link>
       </div>
 
       <div className="mt-6">
@@ -137,7 +167,8 @@ function LoginForm() {
           type="button"
           className="btn h-11 min-h-11 border-black bg-black text-sm font-medium
            text-white hover:border-gray-800 hover:bg-gray-800
-          ">
+          "
+        >
           <SiGithub
             size={17}
             aria-hidden="true"
@@ -150,7 +181,8 @@ function LoginForm() {
           type="button"
           className="btn h-11 min-h-11 border border-[#e5e5e5] bg-white text-sm
              font-medium text-black hover:bg-gray-50
-          ">
+          "
+        >
           <SiGoogle
             size={17}
             aria-hidden="true"
