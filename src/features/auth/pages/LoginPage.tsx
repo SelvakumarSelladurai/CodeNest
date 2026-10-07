@@ -5,7 +5,7 @@ function LoginPage() {
   return (
     <main className="h-screen overflow-hidden bg-[#f4f7fb] p-4">
       <div
-        className="mx-auto h-full max-w-[1800px] overflow-hidden rounded-2xl bg-white
+        className="mx-auto grid h-full max-w-[1800px] overflow-hidden rounded-2xl bg-white
           shadow-[0_20px_60px_rgba(15,23,42,0.10)] lg:grid-cols-[7fr_3fr]
         ">
 
