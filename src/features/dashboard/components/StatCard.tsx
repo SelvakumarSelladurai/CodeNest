@@ -1,17 +1,29 @@
+import { FOCUS_RING, ICON_TILE, STAT_ICONS, type StatIconKey } from "../dashboard.config";
+
 type StatCardProps = {
   label: string;
   value: string;
-  hint: string;
+  change: string;
+  icon: StatIconKey;
 };
 
-export default function StatCard({ label, value, hint }: StatCardProps) {
+export default function StatCard({ label, value, change, icon }: StatCardProps) {
+  const Icon = STAT_ICONS[icon];
+
   return (
-    <div className="rounded-xl border border-base-300 bg-base-100 p-5">
-      <p className="text-sm font-medium">{label}</p>
+    <article className="rounded-xl border border-[#e7ebf2] bg-white p-5 transition-all duration-200 hover:-translate-y-0.5 hover:border-[#0064F9]/20 hover:shadow-[0_8px_24px_rgba(15,23,42,0.06)]">
+      <div className="flex items-start justify-between">
+        <div className={ICON_TILE}>
+          <Icon size={19} aria-hidden="true" />
+        </div>
 
-      <p className="mt-2 text-2xl font-bold">{value}</p>
+        <span className="text-xs font-medium text-[#10a36a]">{change}</span>
+      </div>
 
-      <p className="mt-1 text-sm text-base-content/50">{hint}</p>
-    </div>
+      <div className="mt-5">
+        <p className="text-[13px] font-medium text-[#718096]">{label}</p>
+        <p className="mt-1 text-2xl font-bold tracking-tight text-[#111827]">{value}</p>
+      </div>
+    </article>
   );
 }
