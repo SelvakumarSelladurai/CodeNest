@@ -7,10 +7,6 @@ import Button from "../../../components/ui/Button";
 import { CARD, EYEBROW, FOCUS_RING, PATH_GUIDANCE, TRACK } from "../roadmap.config";
 import type { RoadmapStats } from "../roadmap.logic";
 
-/* -------------------------------------------------------------------------- */
-/*                                   Header                                   */
-/* -------------------------------------------------------------------------- */
-
 type RoadmapHeaderProps = {
   description: string;
 };
@@ -40,10 +36,6 @@ export function RoadmapHeader({ description }: RoadmapHeaderProps) {
     </header>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*                                  Overview                                  */
-/* -------------------------------------------------------------------------- */
 
 type RoadmapOverviewProps = {
   title: string;
@@ -153,10 +145,6 @@ function OverviewTile({ icon: Icon, iconClassName, label, value, hint }: Overvie
     </div>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*                               Consistency banner                           */
-/* -------------------------------------------------------------------------- */
 
 export function ConsistencyBanner() {
   return (

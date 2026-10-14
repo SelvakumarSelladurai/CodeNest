@@ -7,10 +7,6 @@ import { CARD, FOCUS_RING } from "../roadmap.config";
 import type { RoadmapSearchResult } from "../roadmap.logic";
 import RoadmapIcon from "./RoadmapIcon";
 
-/* -------------------------------------------------------------------------- */
-/*                                Search bar                                  */
-/* -------------------------------------------------------------------------- */
-
 type RoadmapSearchBarProps = {
   value: string;
   onChange: (value: string) => void;
@@ -77,10 +73,6 @@ export function RoadmapSearchBar({
     </div>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*                                Catalog card                                */
-/* -------------------------------------------------------------------------- */
 
 const VISIBLE_TAGS = 4;
 
@@ -183,10 +175,6 @@ export function RoadmapCatalogCard({ result }: RoadmapCatalogCardProps) {
     </article>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*                                Empty state                                 */
-/* -------------------------------------------------------------------------- */
 
 type RoadmapCatalogEmptyProps = {
   query: string;

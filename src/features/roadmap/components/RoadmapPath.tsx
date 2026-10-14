@@ -17,10 +17,6 @@ import {
 import { statusLabels, type RoadmapTopic } from "../roadmap.data";
 import { getStageProgress, type FilteredStage } from "../roadmap.logic";
 
-/* -------------------------------------------------------------------------- */
-/*                                   Toolbar                                  */
-/* -------------------------------------------------------------------------- */
-
 type RoadmapToolbarProps = {
   search: string;
   onSearchChange: (value: string) => void;
@@ -86,10 +82,6 @@ export function RoadmapToolbar({
   );
 }
 
-/* -------------------------------------------------------------------------- */
-/*                                 Empty state                                */
-/* -------------------------------------------------------------------------- */
-
 type RoadmapEmptyStateProps = {
   onReset: () => void;
 };
@@ -113,10 +105,6 @@ export function RoadmapEmptyState({ onReset }: RoadmapEmptyStateProps) {
     </div>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*                                 Stage card                                 */
-/* -------------------------------------------------------------------------- */
 
 export function RoadmapStageCard({ stage, topics }: FilteredStage) {
   const headingId = useId();
@@ -180,10 +168,6 @@ export function RoadmapStageCard({ stage, topics }: FilteredStage) {
     </section>
   );
 }
-
-/* -------------------------------------------------------------------------- */
-/*                                 Topic card                                 */
-/* -------------------------------------------------------------------------- */
 
 type RoadmapTopicCardProps = {
   topic: RoadmapTopic;
